@@ -22,7 +22,7 @@ See [this VirtualBox bug report](https://www.virtualbox.org/ticket/15159)
 Create a custom build of the VirtualBox IPXE boot ROM, which includes the bzImage support.
 Support only the `virtio-net` NIC type, to save space and keep under the size limit.
 
-As long as you define your VirtualBox network adapter used for IPXE booting as `Paravirtualized Network (virtio-net)`, you will be able to boot CoreoS under VirtualBox using IPXE.
+As long as you define your VirtualBox network adapter used for IPXE booting as `Paravirtualized Network (virtio-net)`, you will be able to boot CoreOS under VirtualBox using IPXE.
 
 # Getting and using the IPXE boot ROM
 
@@ -51,7 +51,7 @@ Creates a Docker image including a build of the IPXE boot ROM as described above
 ## Copy IPXE boot ROM
 
 ```bash
-./copy-virtio
+./copy-virtio.sh
 ```
 
 The newly built boot ROM file is saved in this repo directory structure as `bin/virtio-net.isarom`.
