@@ -1,3 +1,5 @@
+# DO NOT USE -- this project is broken right now. Working on fixing.
+
 # virtualbox-ipxe
 Custom IPXE build for VirtualBox with support for booting CoreOS
 
@@ -16,6 +18,8 @@ Therefore, network booting CoreOS on VirtualBox using IPXE fails.
 The VirtualBox developers have a limit on the size of their IPXE boot ROM image. 
 They have declined to add bzImage support for this reason.
 See [this VirtualBox bug report](https://www.virtualbox.org/ticket/15159)
+
+VirtualBox provides an [Extension Pack](https://www.virtualbox.org/manual/ch01.html#intro-installing) which includes the Intel PXE Boot ROM. 
 
 ## The solution provided by this repo
 
@@ -55,3 +59,7 @@ Creates a Docker image including a build of the IPXE boot ROM as described above
 ```
 
 The newly built boot ROM file is saved in this repo directory structure as `bin/virtio-net.isarom`.
+
+# Notes
+
+The max size boot rom is 57344 bytes long.
