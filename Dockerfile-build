@@ -1,0 +1,18 @@
+FROM debian
+MAINTAINER Spencer Brown
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get -y update && \
+    apt-get -y install build-essential git apt-file net-tools dnsutils iproute2 curl wget vim && \
+    apt-get -y install python ruby && \
+    apt-file update
+
+WORKDIR /root
+
+RUN curl -O https://storage.googleapis.com/golang/go1.6.2.linux-amd64.tar.gz && \
+    tar -C /usr/local -xzf go1.6.2.linux-amd64.tar.gz && \
+    rm go1.6.2.linux-amd64.tar.gz && \
+    mkdir gowork
+
+RUN printf "\nexport PATH=\$PATH:/usr/local/go/bin\nexport GOPATH=/root/gowork\n" >> .bashrc

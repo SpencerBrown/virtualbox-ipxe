@@ -1,4 +1,14 @@
-# DO NOT USE -- this project is broken right now. Working on fixing.
+# DO NOT USE -- this project is broken right now. 
+
+The problem is that the `virtio-net.isarom` binary is now too large for VirtualBox to use as the NIC boot ROM. The maximum size is 57344 bytes, and the binary is now 58368 bytes. 
+
+Unfortunately, VirtualBox does not give you a visible error or warning in this case. 
+It logs the issue in a file in the Logs directory of the VM, and silently uses its own iPXE binary. 
+So it appears to you like there is no bzimage support in the new binary.
+
+I am working on an alternate approach to the problem and have it working on my local machine. 
+The solution is to chainload from the iPXE in VirtualBox's boot ROM to a more capable iPXE with bzimage support. 
+I will be posting this in a repo soon.
 
 # virtualbox-ipxe
 Custom IPXE build for VirtualBox with support for booting CoreOS
